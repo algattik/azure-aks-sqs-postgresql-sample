@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sqs
+  name: sqs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqs
+  template:
+    metadata:
+      labels:
+        app: sqs
+    spec:
+      containers:
+      - image: roribio16/alpine-sqs
+        name: sqs
+        ports:
+        - containerPort: 9324
+        - containerPort: 9325
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqs
+  labels:
+    app: sqs
+spec:
+  ports:
+  - port: 9324
+    protocol: TCP
+    name: queue-service
+  - port: 9325
+    protocol: TCP
+    name: web-ui
+  selector:
+    app: sqs

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring-app
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: ${JDBC_URL}
+    username: ${JDBC_USERNAME}
+    password: ${JDBC_PASSWORD}
+message:
+  queue: ${SQS_QUEUE}
+

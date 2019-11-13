@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: data-generator
+  name: data-generator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-generator
+  template:
+    metadata:
+      labels:
+        app: data-generator
+    spec:
+      containers:
+      - command:
+        - bash
+        - -x
+        - -c
+        - |
+          apk add --no-cache util-linux tzdata
+          while true; do
+            id=`uuidgen`
+            city=`find /usr/share/zoneinfo/ -type f | shuf -n1 | xargs basename | tr _ " "`
+            aws --endpoint-url http://sqs:9324 sqs send-message --queue-url http://sqs:9324/queue/default --message-body "{\"id\":\"$id\", \"name\":\"$city\"}"
+            sleep 1
+          done
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          value: ignored_value
+        - name: AWS_SECRET_ACCESS_KEY
+          value: ignored_value
+        - name: AWS_DEFAULT_REGION
+          value: ignored_value
+        image: atlassian/pipelines-awscli
+        name: data-generator
