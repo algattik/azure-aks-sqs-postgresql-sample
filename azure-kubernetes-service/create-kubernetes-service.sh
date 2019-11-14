@@ -8,7 +8,7 @@ echo ". name: $AKS_CLUSTER"
 
 if ! az aks show --name $AKS_CLUSTER --resource-group $RESOURCE_GROUP >/dev/null 2>&1; then
   echo "getting Subnet ID"
-  subnet_id=$(az network vnet subnet show -g $RESOURCE_GROUP -n streaming-subnet --vnet-name $VNET_NAME --query id -o tsv)
+  subnet_id=$(az network vnet subnet show -g $RESOURCE_GROUP -n kubernetes-subnet --vnet-name $VNET_NAME --query id -o tsv)
 
   echo "getting Service Principal ID and password"
   appId=$(az keyvault secret show --vault-name $SERVICE_PRINCIPAL_KEYVAULT -n $SERVICE_PRINCIPAL_KV_NAME-id --query value -o tsv)

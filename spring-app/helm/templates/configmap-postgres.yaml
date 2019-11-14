@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "fullname" . }}-postgres
+  labels:
+    app: {{ template "fullname" . }}
+data:
+  url: {{ .Values.jdbc.url }}
+  user: {{ .Values.jdbc.username }}
+  password: {{ .Values.jdbc.password }}

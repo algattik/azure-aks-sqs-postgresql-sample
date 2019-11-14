@@ -15,7 +15,7 @@ export PREFIX=''
 export LOCATION="eastus"
 export STEPS="CIDPTM"
 
-usage() { 
+usage() {
     echo "Usage: $0 -d <deployment-name> [-s <steps>]  [-l <location>]"
     echo "-s: specify which steps should be executed. Default=$STEPS"
     echo "    Possible values:"
@@ -24,8 +24,9 @@ usage() {
     echo "      D=DATABASE"
     echo "      P=PROCESSING"
     echo "      T=TEST clients"
+    echo "      M=MONITORING"
     echo "-l: where to create the resources. Default=$LOCATION"
-    exit 1; 
+    exit 1;
 }
 
 # Initialize parameters specified from command line
@@ -67,8 +68,8 @@ source assert/has-local-jq.sh
 source assert/has-local-helm.sh
 
 echo
-echo "Streaming at Scale with Spring Cloud and PostgreSQL"
-echo "==================================================="
+echo "SQS Message Processing with Spring Cloud, AKS and PostgreSQL"
+echo "============================================================"
 echo
 
 echo "Steps to be executed: $STEPS"
@@ -86,7 +87,7 @@ echo
 
 echo "***** [C] Setting up COMMON resources"
 
-    export AKS_CLUSTER=$PREFIX"aks" 
+    export AKS_CLUSTER=$PREFIX"aks"
     export SERVICE_PRINCIPAL_KV_NAME=$AKS_CLUSTER
     export SERVICE_PRINCIPAL_KEYVAULT=$PREFIX"spkv"
     export ACR_NAME=$PREFIX"acr"
@@ -100,25 +101,26 @@ echo "***** [C] Setting up COMMON resources"
         source azure-common/create-virtual-network.sh
         source azure-storage/create-storage-account.sh
     fi
-echo 
+echo
 
 echo "***** [I] Setting up INFRASTRUCTURE"
-    
+
     source azure-monitor/generate-workspace-name.sh
 
     RUN=`echo $STEPS | grep I -o || true`
     if [ ! -z "$RUN" ]; then
         source azure-monitor/create-log-analytics.sh
         source azure-kubernetes-service/create-kubernetes-service.sh
+        source azure-kubernetes-service/create-container-registry.sh
         source azure-kubernetes-service/deploy-sqs-emulator.sh
     fi
 echo
 
 echo "***** [D] Setting up DATABASE"
 
-    export POSTGRESQL_SERVER_NAME=$PREFIX"sql" 
-    export POSTGRESQL_DATABASE_NAME="streaming"    
-    export POSTGRESQL_ADMIN_PASS="Strong_Passw0rd!"  
+    export POSTGRESQL_SERVER_NAME=$PREFIX"sql"
+    export POSTGRESQL_DATABASE_NAME="locationdb"
+    export POSTGRESQL_ADMIN_PASS="Strong_Passw0rd!"
 
     RUN=`echo $STEPS | grep D -o || true`
     if [ ! -z "$RUN" ]; then
@@ -141,5 +143,14 @@ echo "***** [T] Starting up TEST clients"
         source azure-kubernetes-service/deploy-sqs-data-generator.sh
     fi
 echo
+
+echo "***** [M] Starting up MONITORING"
+
+    RUN=`echo $STEPS | grep M -o || true`
+    if [ ! -z "$RUN" ]; then
+        source azure-kubernetes-service/monitoring.sh
+    fi
+echo
+
 
 echo "***** Done"

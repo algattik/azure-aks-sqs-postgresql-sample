@@ -1,0 +1,51 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}-app
+spec:
+  replicas: {{ .Values.app.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+        release: {{ .Release.Name }}
+        component: app
+    spec:
+      containers:
+      - name: app
+        image: {{ .Values.image }}:{{ .Values.imageTag }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        ports:
+        - containerPort: 9999
+          name: "jvm-debug"
+        env:
+        - name: JDBC_URL
+          valueFrom:
+            configMapKeyRef:
+              name: {{ template "fullname" . }}-postgres
+              key: url
+        - name: JDBC_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: {{ template "fullname" . }}-postgres
+              key: user
+        - name: JDBC_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}-postgres
+              key: password
+        - name: SQS_QUEUE
+          valueFrom:
+            configMapKeyRef:
+              name: {{ template "fullname" . }}-aws
+              key: queue
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            configMapKeyRef:
+              name: {{ template "fullname" . }}-aws
+              key: access_key_id
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}-aws
+              key: secret_access_key
