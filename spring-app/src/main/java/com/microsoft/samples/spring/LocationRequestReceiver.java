@@ -2,8 +2,7 @@ package com.microsoft.samples.spring;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.microsoft.samples.spring.maps.AzureMapsService;
-import com.microsoft.samples.spring.maps.Result;
+import com.microsoft.samples.spring.maps.AzureMapsClient;
 import com.microsoft.samples.spring.maps.SearchAddressResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,10 +25,10 @@ public class LocationRequestReceiver {
     private LocationRepository repository;
 
     @Autowired
-    private AzureMapsService maps;
+    private AzureMapsClient maps;
 
     @SqsListener(value = "${message.queue}", deletionPolicy = ON_SUCCESS)
-    private void receiveMessage(String requestStr) throws JsonProcessingException {
+    void receiveMessage(String requestStr) throws JsonProcessingException {
         LocationRequest request = om.readValue(requestStr, LocationRequest.class);
 
         Location loc = new Location();
@@ -46,7 +45,7 @@ public class LocationRequestReceiver {
         SearchAddressResponse address = maps.searchAddress(request.name);
 
         if (address.results != null && !address.results.isEmpty()) {
-            Result result = address.results.get(0);
+            SearchAddressResponse.Result result = address.results.get(0);
             if (result.address != null) {
                 loc.country = result.address.country;
             }

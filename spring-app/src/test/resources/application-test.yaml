@@ -1,0 +1,7 @@
+message:
+  queue: testQueue
+azure:
+  maps:
+    clientId: testClientId
+    subscriptionKey: testKey
+

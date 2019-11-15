@@ -1,8 +1,6 @@
 spring:
   application:
     name: spring-app
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: ${JDBC_URL}
     username: ${JDBC_USERNAME}
@@ -15,3 +13,4 @@ azure:
     subscriptionKey: ${AZURE_MAPS_SUBSCRIPTIONKEY}
     endpoint:
       address: https://atlas.microsoft.com/search/address/json?api-version=1.0&query={query}&subscription-key={key}
+

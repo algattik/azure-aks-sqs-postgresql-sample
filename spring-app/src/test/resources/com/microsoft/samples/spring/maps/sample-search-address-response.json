@@ -1,0 +1,413 @@
+{
+  "summary": {
+    "query": "switzerland",
+    "queryType": "NON_NEAR",
+    "queryTime": 7,
+    "numResults": 9,
+    "offset": 0,
+    "totalResults": 3588,
+    "fuzzyLevel": 1
+  },
+  "results": [
+    {
+      "type": "Geography",
+      "id": "CH/GEO/p0/0",
+      "score": 2.756,
+      "entityType": "Country",
+      "address": {
+        "countryCode": "CH",
+        "country": "Switzerland",
+        "countryCodeISO3": "CHE",
+        "freeformAddress": "Switzerland"
+      },
+      "position": {
+        "lat": 46.948,
+        "lon": 7.44813
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 47.80838,
+          "lon": 5.95589
+        },
+        "btmRightPoint": {
+          "lat": 45.81779,
+          "lon": 10.49238
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 47.80838,
+          "lon": 5.95589
+        },
+        "btmRightPoint": {
+          "lat": 45.81779,
+          "lon": 10.49238
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "00005858-5800-1200-0000-00007736a406"
+        }
+      }
+    },
+    {
+      "type": "Geography",
+      "id": "US/GEO/p0/294146",
+      "score": 2.38174,
+      "entityType": "Municipality",
+      "address": {
+        "municipality": "Switzerland",
+        "countrySecondarySubdivision": "Saint-John's",
+        "countryTertiarySubdivision": "Fruit Cove",
+        "countrySubdivision": "FL",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "Switzerland, FL",
+        "countrySubdivisionName": "Florida"
+      },
+      "position": {
+        "lat": 30.07607,
+        "lon": -81.64738
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 30.19048,
+          "lon": -81.69212
+        },
+        "btmRightPoint": {
+          "lat": 29.96426,
+          "lon": -81.39264
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 30.19048,
+          "lon": -81.69212
+        },
+        "btmRightPoint": {
+          "lat": 29.96426,
+          "lon": -81.39264
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "00005546-3100-4600-0000-0000478a5127"
+        }
+      }
+    },
+    {
+      "type": "Geography",
+      "id": "US/GEO/p0/424951",
+      "score": 2.38174,
+      "entityType": "Municipality",
+      "address": {
+        "municipality": "Switzerland",
+        "countrySecondarySubdivision": "Jasper",
+        "countryTertiarySubdivision": "Ridgeland",
+        "countrySubdivision": "SC",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "Switzerland, SC",
+        "countrySubdivisionName": "South Carolina"
+      },
+      "position": {
+        "lat": 32.42782,
+        "lon": -81.00841
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 32.69684,
+          "lon": -81.25385
+        },
+        "btmRightPoint": {
+          "lat": 32.28936,
+          "lon": -80.74584
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 32.69684,
+          "lon": -81.25385
+        },
+        "btmRightPoint": {
+          "lat": 32.28936,
+          "lon": -80.74584
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "00005553-4300-4600-0000-00004787c027"
+        }
+      }
+    },
+    {
+      "type": "Geography",
+      "id": "US/GEO/p0/181833",
+      "score": 2.17681,
+      "entityType": "MunicipalitySubdivision",
+      "address": {
+        "municipalitySubdivision": "Switzerland",
+        "municipality": "Silverton",
+        "countrySecondarySubdivision": "Polk, Marion",
+        "countryTertiarySubdivision": "Salem",
+        "countrySubdivision": "OR",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "Silverton, OR",
+        "countrySubdivisionName": "Oregon"
+      },
+      "position": {
+        "lat": 44.98179,
+        "lon": -122.85537
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 44.98179,
+          "lon": -122.85537
+        },
+        "btmRightPoint": {
+          "lat": 44.98179,
+          "lon": -122.85537
+        }
+      }
+    },
+    {
+      "type": "Geography",
+      "id": "US/GEO/p0/179136",
+      "score": 2.15547,
+      "entityType": "MunicipalitySubdivision",
+      "address": {
+        "municipalitySubdivision": "Little Switzerland, Westwood Village, Tidewater, Little Albany, Fisher, Alsea Rivera",
+        "municipality": "Yachats, Tidewater, Seal Rock, Eddyville, Deadwood, Alsea",
+        "countrySecondarySubdivision": "Lincoln, Lane",
+        "countryTertiarySubdivision": "Waldport, Middle Siuslaw River-Triangle Lake, Florence, Eddyville",
+        "countrySubdivision": "OR",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "Yachats, OR",
+        "countrySubdivisionName": "Oregon"
+      },
+      "position": {
+        "lat": 44.36016,
+        "lon": -123.85123
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 44.54211,
+          "lon": -124.03121
+        },
+        "btmRightPoint": {
+          "lat": 44.17821,
+          "lon": -123.67124
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 44.54211,
+          "lon": -124.03121
+        },
+        "btmRightPoint": {
+          "lat": 44.17821,
+          "lon": -123.67124
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "0000554f-5200-4600-0000-000047888662"
+        }
+      }
+    },
+    {
+      "type": "Geography",
+      "id": "US/GEO/p0/179246",
+      "score": 2.15547,
+      "entityType": "MunicipalitySubdivision",
+      "address": {
+        "municipalitySubdivision": "Little Switzerland, Tidewater",
+        "municipality": "Tidewater",
+        "countrySecondarySubdivision": "Lincoln",
+        "countryTertiarySubdivision": "Waldport",
+        "countrySubdivision": "OR",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "Tidewater, OR",
+        "countrySubdivisionName": "Oregon"
+      },
+      "position": {
+        "lat": 44.40099,
+        "lon": -123.89172
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 44.4126,
+          "lon": -123.90576
+        },
+        "btmRightPoint": {
+          "lat": 44.38938,
+          "lon": -123.87769
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 44.4126,
+          "lon": -123.90576
+        },
+        "btmRightPoint": {
+          "lat": 44.38938,
+          "lon": -123.87769
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "ba76bf3f-d5e7-4f16-91f0-cf41d8e03860"
+        }
+      }
+    },
+    {
+      "type": "Geography",
+      "id": "US/GEO/p0/180051",
+      "score": 2.15547,
+      "entityType": "MunicipalitySubdivision",
+      "address": {
+        "municipalitySubdivision": "Little Switzerland, Yachats, Westwood Village, Wakonda Beach, Tillicum Beach, Tidewater, Seal Rock, San Marine, Ona, Little Albany, Fisher, Drift Creek, Bayview, Bayshore, Alsea Rivera, Alsea",
+        "municipality": "Yachats, Tidewater, Seal Rock, Eddyville, Alsea",
+        "countrySecondarySubdivision": "Lincoln, Benton",
+        "countryTertiarySubdivision": "Waldport, Toledo, Southwest Benton, Newport, Eddyville",
+        "countrySubdivision": "OR",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "Yachats, OR",
+        "countrySubdivisionName": "Oregon"
+      },
+      "position": {
+        "lat": 44.42249,
+        "lon": -123.94346
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 44.57022,
+          "lon": -124.18767
+        },
+        "btmRightPoint": {
+          "lat": 44.27476,
+          "lon": -123.69925
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 44.57022,
+          "lon": -124.18767
+        },
+        "btmRightPoint": {
+          "lat": 44.27476,
+          "lon": -123.69925
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "0000554f-5200-4600-0000-000047888217"
+        }
+      }
+    },
+    {
+      "type": "Geography",
+      "id": "US/GEO/p0/219224",
+      "score": 2.15547,
+      "entityType": "MunicipalitySubdivision",
+      "address": {
+        "municipalitySubdivision": "New Switzerland, Wilbanks Corner, Toccoa, Stottsville, Shorts Mill, Raoul, Midway, Longview, Dicks Hill, Clarkesville, Baldwin, Alto",
+        "municipality": "Toccoa, Mount Airy, Demorest, Clarkesville, Baldwin, Alto",
+        "countrySecondarySubdivision": "Hall, Habersham, Banks",
+        "countryTertiarySubdivision": "Turnerville, Lula, Cornelia, Clarkesville, Baldwin",
+        "countrySubdivision": "GA",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "Toccoa, GA",
+        "countrySubdivisionName": "Georgia"
+      },
+      "position": {
+        "lat": 34.51423,
+        "lon": -83.54897
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 34.61439,
+          "lon": -83.68869
+        },
+        "btmRightPoint": {
+          "lat": 34.41408,
+          "lon": -83.40924
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 34.61439,
+          "lon": -83.68869
+        },
+        "btmRightPoint": {
+          "lat": 34.41408,
+          "lon": -83.40924
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "00005547-3100-4600-0000-00004788f16f"
+        }
+      }
+    },
+    {
+      "type": "Geography",
+      "id": "US/GEO/p0/219259",
+      "score": 2.15547,
+      "entityType": "MunicipalitySubdivision",
+      "address": {
+        "municipalitySubdivision": "New Switzerland, Toccoa, Stottsville, Shorts Mill, Dicks Hill",
+        "municipality": "Toccoa, Mount Airy, Demorest, Clarkesville",
+        "countrySecondarySubdivision": "Habersham",
+        "countryTertiarySubdivision": "Turnerville, Cornelia",
+        "countrySubdivision": "GA",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "Toccoa, GA",
+        "countrySubdivisionName": "Georgia"
+      },
+      "position": {
+        "lat": 34.56146,
+        "lon": -83.44957
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 34.6587,
+          "lon": -83.53675
+        },
+        "btmRightPoint": {
+          "lat": 34.46421,
+          "lon": -83.3624
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 34.6587,
+          "lon": -83.53675
+        },
+        "btmRightPoint": {
+          "lat": 34.46421,
+          "lon": -83.3624
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "00005547-3100-4600-0000-00004788f171"
+        }
+      }
+    }
+  ]
+}

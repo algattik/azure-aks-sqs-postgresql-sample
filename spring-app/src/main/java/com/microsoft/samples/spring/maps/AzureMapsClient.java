@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -18,21 +19,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class AzureMapsService {
+public class AzureMapsClient {
 
-    private static Logger logger = LoggerFactory.getLogger(AzureMapsService.class);
-
+    private static Logger logger = LoggerFactory.getLogger(AzureMapsClient.class);
+    private final RestTemplate restTemplate;
     @Autowired
     private RetryTemplate retryTemplate;
-
     @Value("${azure.maps.clientId}")
     private String azureMapsClientId;
-
     @Value("${azure.maps.subscriptionKey}")
     private String azureMapsSubscriptionKey;
-
     @Value("${azure.maps.endpoint.address}")
     private String endpoint;
+
+    public AzureMapsClient(RestTemplateBuilder restTemplateBuilder) {
+        restTemplate = restTemplateBuilder.build();
+    }
 
     private SearchAddressResponse getAzureMapsSearchAddress(String query) {
 
@@ -41,9 +43,9 @@ public class AzureMapsService {
         Map<String, Object> urlParameters = new HashMap<>();
         urlParameters.put("query", query);
         urlParameters.put("key", azureMapsSubscriptionKey);
-        logger.info("Querying {} with clientId {} and params {}", endpoint, azureMapsClientId, urlParameters);
+        logger.info("Querying {} with query {}", endpoint, query);
 
-        ResponseEntity<SearchAddressResponse> exchange = new RestTemplate().exchange(endpoint,
+        ResponseEntity<SearchAddressResponse> exchange = restTemplate.exchange(endpoint,
                 HttpMethod.GET, new HttpEntity(headers), new ParameterizedTypeReference<SearchAddressResponse>() {
                 }, urlParameters);
         return exchange.getBody();
