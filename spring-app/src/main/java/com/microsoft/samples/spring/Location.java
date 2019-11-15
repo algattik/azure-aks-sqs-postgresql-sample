@@ -13,4 +13,10 @@ public class Location implements Serializable {
 
     public String name;
 
+    public String country;
+
+    public Double latitude;
+
+    public Double longitude;
+
 }

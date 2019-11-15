@@ -130,8 +130,11 @@ echo
 
 echo "***** [P] Setting up PROCESSING"
 
+    export MAPS_ACCOUNT=$PREFIX"maps"
+
     RUN=`echo $STEPS | grep P -o || true`
     if [ ! -z "$RUN" ]; then
+        source ./azure-maps/create-maps.sh
         source ./deploy-spring-app.sh
     fi
 echo

@@ -9,4 +9,9 @@ spring:
     password: ${JDBC_PASSWORD}
 message:
   queue: ${SQS_QUEUE}
-
+azure:
+  maps:
+    clientId: ${AZURE_MAPS_CLIENTID}
+    subscriptionKey: ${AZURE_MAPS_SUBSCRIPTIONKEY}
+    endpoint:
+      address: https://atlas.microsoft.com/search/address/json?api-version=1.0&query={query}&subscription-key={key}

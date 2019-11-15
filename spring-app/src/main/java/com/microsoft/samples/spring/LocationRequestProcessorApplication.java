@@ -7,14 +7,35 @@ import org.springframework.cloud.aws.autoconfigure.context.ContextCredentialsAut
 import org.springframework.cloud.aws.autoconfigure.context.ContextInstanceDataAutoConfiguration;
 import org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration;
 import org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.retry.annotation.EnableRetry;
+import org.springframework.retry.backoff.ExponentialBackOffPolicy;
+import org.springframework.retry.policy.SimpleRetryPolicy;
+import org.springframework.retry.support.RetryTemplate;
 
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {ContextInstanceDataAutoConfiguration.class, ContextCredentialsAutoConfiguration.class, ContextRegionProviderAutoConfiguration.class, ContextStackAutoConfiguration.class})
+@EnableRetry
 public class LocationRequestProcessorApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(LocationRequestProcessorApplication.class, args);
     }
 
+    @Bean
+    public RetryTemplate retryTemplate() {
+        RetryTemplate retryTemplate = new RetryTemplate();
+
+        ExponentialBackOffPolicy backOffPolicy = new ExponentialBackOffPolicy();
+        backOffPolicy.setInitialInterval(3000L);
+        backOffPolicy.setMultiplier(3);
+        retryTemplate.setBackOffPolicy(backOffPolicy);
+
+        SimpleRetryPolicy retryPolicy = new SimpleRetryPolicy();
+        retryPolicy.setMaxAttempts(5);
+        retryTemplate.setRetryPolicy(retryPolicy);
+
+        return retryTemplate;
+    }
 }

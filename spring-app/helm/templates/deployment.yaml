@@ -49,3 +49,13 @@ spec:
             secretKeyRef:
               name: {{ template "fullname" . }}-aws
               key: secret_access_key
+        - name: AZURE_MAPS_CLIENTID
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}-azure
+              key: maps_clientId
+        - name: AZURE_MAPS_SUBSCRIPTIONKEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}-azure
+              key: maps_subscriptionKey
