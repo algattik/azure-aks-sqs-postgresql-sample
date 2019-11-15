@@ -15,9 +15,9 @@ import java.util.UUID;
 import static org.springframework.cloud.aws.messaging.listener.SqsMessageDeletionPolicy.ON_SUCCESS;
 
 @Component
-public class LocationRequestReceiver {
+public class LocationProcessor {
 
-    private static final Logger log = LoggerFactory.getLogger(LocationRequestReceiver.class);
+    private static final Logger log = LoggerFactory.getLogger(LocationProcessor.class);
 
     private static final ObjectMapper om = new ObjectMapper();
 

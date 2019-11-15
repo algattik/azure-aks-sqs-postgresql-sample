@@ -17,10 +17,10 @@ import org.springframework.retry.support.RetryTemplate;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {ContextInstanceDataAutoConfiguration.class, ContextCredentialsAutoConfiguration.class, ContextRegionProviderAutoConfiguration.class, ContextStackAutoConfiguration.class})
 @EnableRetry
-public class LocationRequestProcessorApplication {
+public class LocationServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LocationRequestProcessorApplication.class, args);
+        SpringApplication.run(LocationServiceApplication.class, args);
     }
 
     @Bean

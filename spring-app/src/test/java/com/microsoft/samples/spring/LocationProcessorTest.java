@@ -25,11 +25,11 @@ import static org.mockito.BDDMockito.*;
 @SpringBootTest
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @ActiveProfiles("test")
-class LocationRequestReceiverTest {
+class LocationProcessorTest {
 
     private static final ObjectMapper om = new ObjectMapper();
     @Autowired
-    private LocationRequestReceiver receiver;
+    private LocationProcessor receiver;
     @MockBean
     private AzureMapsClient mapsClient;
     @MockBean
